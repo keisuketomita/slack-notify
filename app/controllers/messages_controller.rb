@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
     render :new if @message.invalid?
   end
   def create #DB更新
+    @message = Msg.new(message_params)
     if @message.save
       redirect_to messages_path, notice: "メッセージを作成しました"
     else
