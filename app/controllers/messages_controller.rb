@@ -1,21 +1,25 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:edit, :update, :destroy]
-  def index #一覧（トップページ）
+  def index
     @messages = Msg.all
   end
-  def new #投稿
+  def new
     @message = Msg.new
   end
-  def confirm #投稿確認
+  def confirm
     @message = Msg.new(message_params)
     render :new if @message.invalid?
   end
-  def create #DB更新
+  def create
     @message = Msg.new(message_params)
-    if @message.save
-      redirect_to messages_path, notice: "メッセージを作成しました"
-    else
+    if params[:back]
       render :new
+    else
+      if @message.save
+        redirect_to messages_path, notice: "メッセージを作成しました"
+      else
+        render :new
+      end
     end
   end
 

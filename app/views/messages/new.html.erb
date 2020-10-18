@@ -1,5 +1,5 @@
-<h2>メッセージを投稿する</h2>
-<%= form_with(model: @message, local: true, url:messages_path) do |form| %>
+<h2>新しく投稿する</h2>
+<%= form_with(model: @message, local: true, url: confirm_messages_path ) do |form| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= @message.errors.count %>件のエラーがあります。</h2>
@@ -16,4 +16,4 @@
   </div>
   <%= form.submit %>
 <% end %>
-<%= link_to "メッセージ一覧画面にもどる", messages_path %>
+<%= link_to "投稿一覧画面にもどる", messages_path %>
