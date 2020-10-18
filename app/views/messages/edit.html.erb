@@ -16,4 +16,6 @@
   </div>
   <%= form.submit %>
 <% end %>
-<%= link_to "メッセージ一覧画面にもどる", messages_path %>
+<%= link_to 'メッセージを削除する', message_path(@message.id), method: :delete ,
+  data: { confirm: '本当に削除していいですか？' } %>
+<br><%= link_to "メッセージ一覧画面にもどる", messages_path %>
