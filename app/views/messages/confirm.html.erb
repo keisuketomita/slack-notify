@@ -3,6 +3,8 @@
   <%= form.hidden_field :content %>
   <p>投稿</p>
   <%= @message.content %>
-  <br><%= form.submit  "投稿する" %>
-  <br><%= form.submit "戻る", name: 'back' %>
+  <div class="btn-wrapper">
+    <%= form.submit  "投稿する" %>
+    <%= form.submit "戻る", name: 'back' %>
+  </div>
 <% end %>

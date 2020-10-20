@@ -12,8 +12,12 @@
   <% end %>
   <div class="message_title">
     <%= form.label :content %>
-    <br><%= form.text_field :content %>
+    <br><%= form.text_area :content %>
   </div>
-  <%= form.submit %>
+  <input type="submit" name="commit" value="新規投稿" data-disable-with="新規投稿中･･･">
 <% end %>
-<%= link_to "投稿一覧画面にもどる", messages_path %>
+<div class="btn-wrapper">
+  <button class="btn btn-default">
+    <%= link_to '投稿一覧に戻る', messages_path %>
+  </button>
+</div>

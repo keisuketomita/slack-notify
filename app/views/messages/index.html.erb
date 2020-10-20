@@ -1,14 +1,14 @@
 <h1>投稿一覧</h1>
 <p><%= notice %></p>
-<table>
+<table class="center-block">
   <tr>
     <th>投稿内容</th>
   </tr>
-<% @messages.each do |message| %>
-  <tr>
-    <td><%= message.content %></td>
-    <td><%= link_to '投稿内容を編集する', edit_message_path(message.id) %></td>
-  </tr>
-<% end %>
+  <% @messages.each do |message| %>
+    <tr>
+      <td><%= link_to message.content,edit_message_path(message.id)  %></td>
+    </tr>
+  <% end %>
 </table>
-<br><%= link_to '新しく投稿する', new_message_path %>
+<br>
+<button class="btn btn-primary"><%= link_to '新しく投稿する', new_message_path %></button>

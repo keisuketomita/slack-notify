@@ -12,10 +12,16 @@
   <% end %>
   <div class="message_title">
     <%= form.label :content %>
-    <br><%= form.text_field :content %>
+    <br><%= form.text_area :content %>
   </div>
-  <%= form.submit %>
+    <input type="submit" name="commit" value="投稿を編集する" data-disable-with="投稿を編集中･･･">
 <% end %>
-<%= link_to '投稿を削除する', message_path(@message.id), method: :delete ,
-  data: { confirm: '本当に削除していいですか？' } %>
-<br><%= link_to "投稿一覧画面にもどる", messages_path %>
+<div class="btn-wrapper">
+  <button class="btn btn-warning">
+    <%= link_to '投稿を削除する', message_path(@message.id), method: :delete ,
+    data: { confirm: '本当に削除していいですか？' } %>
+  </button>
+  <button class="btn btn-default">
+    <%= link_to '投稿一覧に戻る', messages_path %>
+  </button>  
+</div>
